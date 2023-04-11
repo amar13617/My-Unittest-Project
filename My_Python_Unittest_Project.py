@@ -18,6 +18,8 @@ def handler(event,context):
         return second_maximum(data)
     elif operation == "reverse":
         return find_reverse(data2)
+    elif operation == "sorting":
+        return sort_list(data)
     else:
         return {
 
@@ -70,9 +72,14 @@ def find_reverse(data2):
         reverse_list.append(item)
     return reverse_list
 
+def sort_list(data):
+    sorting_list = []
+    for i in sorted(data):
+        sorting_list.append(i)
+    return sorting_list
 
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5],
-"operation": "second_max", "operation":"prime", "operation": "reverse"}
+"operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting"}
 context = {}
 result = handler(event,context)
 print(result)
@@ -138,6 +145,9 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_reverse(self):
         self.assertEqual(find_reverse([4,3,2,1]), [4,3,2,1])
+
+    def test_sorting(self):
+        self.assertEqual(sort_list([3,22,40,56]), [3,22,40,56])
     
     def test_average_true(self):
         self.assertTrue(find_average([22,3,4,55]))
