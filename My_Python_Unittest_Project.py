@@ -68,6 +68,17 @@ result = handler(event,context)
 print(result)
 
 
+#class unittest cases:
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def detail(self):
+        return self.name, self.age
+    
+
 
 
 
@@ -91,7 +102,9 @@ class TestIntegerMethods(unittest.TestCase):
     def test_second_maximum(self):
         self.assertEqual(second_maximum([21,22,34,56]), 34)
 
-    
+    def test_detail(self):
+        person_data = Person("Amar", 28)
+        self.assertEqual(person_data.detail() , ("Amar",28))
 
 if __name__ == '__main__':
     unittest.main()
