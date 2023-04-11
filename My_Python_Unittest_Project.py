@@ -80,7 +80,10 @@ class Person:
     
 
 
+class Manager(Person):
 
+    def property(self, salary):
+        return (self.name, salary)
 
 import unittest
 
@@ -105,6 +108,10 @@ class TestIntegerMethods(unittest.TestCase):
     def test_detail(self):
         person_data = Person("Amar", 28)
         self.assertEqual(person_data.detail() , ("Amar",28))
+
+    def test_property(self):
+        manager_data = Manager("Amar", 2800)
+        self.assertEqual(manager_data.property(2800) , ("Amar",2800))
 
 if __name__ == '__main__':
     unittest.main()
