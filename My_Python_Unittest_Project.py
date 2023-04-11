@@ -101,8 +101,16 @@ class ICICI(Bank):
     def getroi(self):  
         return 8;  
  
-
+#Url unittest cases:
+import requests
 import unittest
+
+def request_func():
+    resp = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))
+    if resp.status_code == 200:
+        return resp.text, resp.json(), resp.encoding, resp.cookies
+    return resp.status_code, resp.url, "error"
+print(request_func())
 
 class TestIntegerMethods(unittest.TestCase):
     
@@ -141,6 +149,11 @@ class TestIntegerMethods(unittest.TestCase):
     def test_sbi_roi(self):
         sbi_detail = SBI()
         self.assertEqual(sbi_detail.getroi(),7)
+
+    def test_get_requests(self):
+        self.assertTrue(request_func(),'{\n  "authenticated": true, \n  "user": "user"\n}\n')
+
+    
 
 if __name__ == '__main__':
     unittest.main()
