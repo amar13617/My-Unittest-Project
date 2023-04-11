@@ -122,5 +122,7 @@ class TestIntegerMethods(unittest.TestCase):
         work_detail = SubManager("Amar", "Sales")
         self.assertEqual(work_detail.property("Sales") , ("Amar","Sales"))
 
+
+
 if __name__ == '__main__':
     unittest.main()
