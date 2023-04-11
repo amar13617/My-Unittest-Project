@@ -89,6 +89,18 @@ class SubManager(Manager):
 
     def work(self, dept):
         return (self.name, dept)
+    
+class Bank:  
+    def getroi(self):  
+        return 10;  
+class SBI(Bank):  
+    def getroi(self):  
+        return 7;  
+  
+class ICICI(Bank):  
+    def getroi(self):  
+        return 8;  
+ 
 
 import unittest
 
@@ -122,7 +134,9 @@ class TestIntegerMethods(unittest.TestCase):
         work_detail = SubManager("Amar", "Sales")
         self.assertEqual(work_detail.property("Sales") , ("Amar","Sales"))
 
-
+    def test_roi(self):
+        bank_detail = Bank()
+        self.assertEqual(bank_detail.getroi(),10)
 
 if __name__ == '__main__':
     unittest.main()
