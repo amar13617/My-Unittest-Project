@@ -61,26 +61,15 @@ def second_maximum(data):
             second_max = i
     return second_max
 
-event = {"data" : [22,3,444,56],
-"operation": "second_max"}
+event = {"data" : [22,3,40,56],"data1" : [23,3,4,55],
+"operation": "second_max", "operation":"prime"}
 context = {}
 result = handler(event,context)
-#assert(result== 56)
 print(result)
 
-event = {"data" : [22,3,4,55],
-"operation": "average"}
-context = {}
-result1 = handler(event,context)
-#assert(result1== 21)
-print(result1)
 
-event = {"data1" : [23,3,4,55],
-"operation": "prime"}
-context = {}
-result_prime = handler(event,context)
-#assert(result_prime== 23,3)
-print(result_prime)
+
+
 
 import unittest
 
@@ -89,20 +78,19 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_average(self):
         self.assertEqual(find_average([22,3,4,55]), 21)
-
-    def test_average_not(self):
-        self.assertNotEqual(find_average([22,3,4,55]), 25)
     
     def test_average_true(self):
         self.assertTrue(find_average([22,3,4,55]))
     
-    #def test_average_false(self):
-    #    self.assertFalse(find_average([22,3,4,55]))
-
     def test_average_in(self):
         self.assertIn(find_average([22,3,4,55]), [21,22,34,56])
 
-    
+    def test_prime(self):
+        self.assertEqual(prime_number([22,3,4,55]), [3])
+
+    def test_second_maximum(self):
+        self.assertEqual(second_maximum([21,22,34,56]), 34)
+
     
 
 if __name__ == '__main__':
