@@ -68,7 +68,7 @@ def second_maximum(data):
 
 def find_reverse(data2):
     reverse_list = []
-    for item in data2:
+    for item in reversed(data2):
         reverse_list.append(item)
     return reverse_list
 
@@ -144,10 +144,10 @@ class TestIntegerMethods(unittest.TestCase):
         self.assertEqual(find_average([22,3,4,55]), 21)
 
     def test_reverse(self):
-        self.assertEqual(find_reverse([4,3,2,1]), [4,3,2,1])
+        self.assertEqual(find_reverse([1,2,3,4]), [4,3,2,1])
 
     def test_sorting(self):
-        self.assertEqual(sort_list([3,22,40,56]), [3,22,40,56])
+        self.assertEqual(sort_list([22,30,4,56]), [4,22,30,56])
     
     def test_average_true(self):
         self.assertTrue(find_average([22,3,4,55]))
