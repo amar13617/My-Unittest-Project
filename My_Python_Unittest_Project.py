@@ -3,6 +3,7 @@ def handler(event,context):
     print("This is context", context, type(context))
     data = event.get("data")
     data1 = event.get("data1")
+    data2 = event.get("data2")
     
     print("This is data", data, type(data))
     operation = event.get("operation")
@@ -15,6 +16,8 @@ def handler(event,context):
         return factorial(data)
     elif operation == "second_max":
         return second_maximum(data)
+    elif operation == "reverse":
+        return find_reverse(data2)
     else:
         return {
 
@@ -61,8 +64,15 @@ def second_maximum(data):
             second_max = i
     return second_max
 
-event = {"data" : [22,3,40,56],"data1" : [23,3,4,55],
-"operation": "second_max", "operation":"prime"}
+def find_reverse(data2):
+    reverse_list = []
+    for item in data2:
+        reverse_list.append(item)
+    return reverse_list
+
+
+event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5],
+"operation": "second_max", "operation":"prime", "operation": "reverse"}
 context = {}
 result = handler(event,context)
 print(result)
@@ -125,6 +135,9 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_average(self):
         self.assertEqual(find_average([22,3,4,55]), 21)
+
+    def test_reverse(self):
+        self.assertEqual(find_reverse([4,3,2,1]), [4,3,2,1])
     
     def test_average_true(self):
         self.assertTrue(find_average([22,3,4,55]))
