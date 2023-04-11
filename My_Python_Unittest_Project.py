@@ -138,5 +138,9 @@ class TestIntegerMethods(unittest.TestCase):
         bank_detail = Bank()
         self.assertEqual(bank_detail.getroi(),10)
 
+    def test_sbi_roi(self):
+        sbi_detail = SBI()
+        self.assertEqual(sbi_detail.getroi(),7)
+
 if __name__ == '__main__':
     unittest.main()
