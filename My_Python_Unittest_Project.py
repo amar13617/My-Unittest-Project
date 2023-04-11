@@ -20,6 +20,8 @@ def handler(event,context):
         return find_reverse(data2)
     elif operation == "sorting":
         return sort_list(data)
+    elif operation == "odd_even":
+        return find_odd_even(data)
     else:
         return {
 
@@ -78,8 +80,20 @@ def sort_list(data):
         sorting_list.append(i)
     return sorting_list
 
+
+def find_odd_even(data1):
+    even_list = []
+    odd_list = []
+    for index in data1:
+        if index%2 == 0:
+            even_list.append(index)
+        else:
+            odd_list.append(index)
+    return even_list, odd_list
+
+
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5],
-"operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting"}
+"operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even"}
 context = {}
 result = handler(event,context)
 print(result)
@@ -142,6 +156,9 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_average(self):
         self.assertEqual(find_average([22,3,4,55]), 21)
+
+    def test_odd_even(self):
+        self.assertEqual(find_odd_even([22,3,4,55])[0], [22,4])
 
     def test_reverse(self):
         self.assertEqual(find_reverse([1,2,3,4]), [4,3,2,1])
