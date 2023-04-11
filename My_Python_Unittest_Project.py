@@ -153,6 +153,9 @@ class TestIntegerMethods(unittest.TestCase):
     def test_get_requests(self):
         self.assertTrue(request_func(),'{\n  "authenticated": true, \n  "user": "user"\n}\n')
 
+    def test_get_request_encoding(self):
+        self.assertEqual(request_func()[2],'utf-8')
+
     
 
 if __name__ == '__main__':
