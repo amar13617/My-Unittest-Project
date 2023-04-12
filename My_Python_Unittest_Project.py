@@ -171,7 +171,7 @@ def post_request_fun():
     payload = {'key1': 'value1', 'key2': 'value2'}
     r = requests.post("http://httpbin.org/post", data=payload)
     if r.status_code == 200:
-        return r.json(), r.encoding, r.content, r.cookies
+        return r.json(), r.encoding, r.content, r.cookies, r.url
     return r.status_code, r.text, "error"
 print(post_request_fun())
 
@@ -236,6 +236,9 @@ class TestCaseMethod(unittest.TestCase):
 
     def test_post_json_method(self):
         self.assertTrue(post_request_fun())
+    
+    def test_post_url_methid(self):
+        self.assertEqual(post_request_fun()[4],'http://httpbin.org/post')
 
     def test_post_encoding_method(self):
         self.assertEqual(post_request_fun()[1],'utf-8')
