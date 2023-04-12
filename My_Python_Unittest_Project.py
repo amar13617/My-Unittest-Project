@@ -4,6 +4,7 @@ def handler(event,context):
     data = event.get("data")
     data1 = event.get("data1")
     data2 = event.get("data2")
+    To_String = event.get("string")
     
     print("This is data", data, type(data))
     operation = event.get("operation")
@@ -22,6 +23,8 @@ def handler(event,context):
         return sort_list(data)
     elif operation == "odd_even":
         return find_odd_even(data)
+    elif operation == "string":
+        return remove_empty_string(To_String)
     else:
         return {
 
@@ -91,9 +94,19 @@ def find_odd_even(data1):
             odd_list.append(index)
     return even_list, odd_list
 
+def remove_empty_string(To_String):
+    string_list = []
+    for item in To_String:
+        if item != "":
+            string_list.append(item)
 
-event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5],
-"operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even"}
+    return string_list
+
+
+
+
+event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5], "string" : ["", "amar", "ankit"],
+"operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even", "operation": "string"}
 context = {}
 result = handler(event,context)
 print(result)
@@ -177,6 +190,9 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_second_maximum(self):
         self.assertEqual(second_maximum([21,22,34,56]), 34)
+
+    def test_remove_str(self):
+        self.assertEqual(remove_empty_string(["", "ashish", "ankit"]), ["ashish", "ankit"])
 
     def test_detail(self):
         person_data = Person("Amar", 28)
