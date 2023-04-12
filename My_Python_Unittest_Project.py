@@ -1,14 +1,14 @@
 def handler(event,context):
-    print("This is event", event, type(event))
-    print("This is context", context, type(context))
+    #print("This is event", event, type(event))
+    #print("This is context", context, type(context))
     data = event.get("data")
     data1 = event.get("data1")
     data2 = event.get("data2")
     To_String = event.get("string")
     
-    print("This is data", data, type(data))
+    #print("This is data", data, type(data))
     operation = event.get("operation")
-    print("This is operation", operation, type(operation))
+    #print("This is operation", operation, type(operation))
     if operation == "average":
         return find_average(data)
     elif operation == "prime":
@@ -102,6 +102,13 @@ def remove_empty_string(To_String):
 
     return string_list
 
+def remove_value(data, val):
+    list_value = []
+    for index in data:
+        if index != val:
+            list_value.append(index)
+    return list_value
+
 
 
 
@@ -169,6 +176,9 @@ class TestIntegerMethods(unittest.TestCase):
 
     def test_average(self):
         self.assertEqual(find_average([22,3,4,55]), 21)
+    
+    def test_remove_value(self):
+        self.assertEqual(remove_value([22,4,5,55,60],55), [22,4,5,60])
 
     def test_odd_even(self):
         self.assertEqual(find_odd_even([22,3,4,55])[0], [22,4])
