@@ -144,6 +144,9 @@ class SubManager(Manager):
 class Bank:  
     def getroi(self):  
         return 10;  
+
+
+
 class SBI(Bank):  
     def getroi(self):  
         return 7;  
@@ -153,6 +156,7 @@ class ICICI(Bank):
         return 8;  
  
 #Url unittest cases:
+
 import requests
 import unittest
 
@@ -171,7 +175,7 @@ def post_request_fun():
     return r.status_code, r.text, "error"
 print(post_request_fun())
 
-class TestIntegerMethods(unittest.TestCase):
+class TestCaseMethod(unittest.TestCase):
     
 
     def test_average(self):
