@@ -51,6 +51,12 @@ def second_maximum(emp_units):
             second_max = ele
     return second_max
 
+def sumX(emp_units):
+    sm = 0
+    for ele in emp_units:
+        sm = sm + ele
+    return sm
+
 import unittest
 
 class TestMultipleExcelSheet(unittest.TestCase):
@@ -64,6 +70,10 @@ class TestMultipleExcelSheet(unittest.TestCase):
 
     def test_second_max(self):
         self.assertEqual(second_maximum(emp_units),90)
+
+    def test_sum(self):
+        self.assertEqual(sumX(emp_units),1536)
+    
 
 if __name__ == '__main__':
     unittest.main()
