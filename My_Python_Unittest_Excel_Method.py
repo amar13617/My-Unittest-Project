@@ -1,8 +1,8 @@
 import xlrd
 workbook = xlrd.open_workbook(r'C:\Users\lenovo\Dropbox\PC\Desktop\emp_details.xlsx')
-print(workbook)
+#print(workbook)
 worksheet = workbook.sheet_by_index(0)
-print(worksheet)
+#print(worksheet)
 
 emp_region = []
 emp_name = []
@@ -27,8 +27,6 @@ for row in range(1, worksheet.nrows):
     emp_total_cost.append(total)
 
 
-print(emp_name)
-
 def averageX(emp_units):
     sm = 0
     for ele in emp_units:
@@ -36,13 +34,24 @@ def averageX(emp_units):
     total = sm/len(emp_units)
     return total
 
+def maximum(emp_units):
+    max = emp_units[0]
+    for ele in emp_units:
+        if ele > max:
+            max = ele
+    return max
+
+
 import unittest
 
-class TestMultipleExcel(unittest.TestCase):
+class TestMultipleExcelSheet(unittest.TestCase):
     
     
     def test_average(self):
-        self.assertEqual(averageX(emp_units), 35.72093023255814)
+        self.assertEqual(averageX(emp_units), (35.72093023255814))
+
+    def test_maximum(self):
+        self.assertEqual(maximum(emp_units),91)
 
 if __name__ == '__main__':
     unittest.main()
