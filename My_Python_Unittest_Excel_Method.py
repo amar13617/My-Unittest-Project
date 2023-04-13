@@ -65,6 +65,8 @@ def value_in(emp_units, val):
     return val_value
 
 
+
+
 import unittest
 
 class TestMultipleExcelSheet(unittest.TestCase):
@@ -85,6 +87,10 @@ class TestMultipleExcelSheet(unittest.TestCase):
     
     def test_in_value(self):
         self.assertEqual(value_in(emp_units, 90),[90])
+
+
+    def test_in_value2(self):
+        self.assertTrue(value_in(emp_units, 90),[90])
 
 
 if __name__ == '__main__':
