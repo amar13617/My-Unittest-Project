@@ -57,6 +57,14 @@ def sumX(emp_units):
         sm = sm + ele
     return sm
 
+def value_in(emp_units, val):
+    val_value = []
+    for ele in emp_units:
+        if ele == val:
+            val_value.append(ele)
+    return val_value
+
+
 import unittest
 
 class TestMultipleExcelSheet(unittest.TestCase):
@@ -71,9 +79,13 @@ class TestMultipleExcelSheet(unittest.TestCase):
     def test_second_max(self):
         self.assertEqual(second_maximum(emp_units),90)
 
+    
     def test_sum(self):
         self.assertEqual(sumX(emp_units),1536)
     
+    def test_in_value(self):
+        self.assertEqual(value_in(emp_units, 90),[90])
+
 
 if __name__ == '__main__':
     unittest.main()
