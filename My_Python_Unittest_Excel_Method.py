@@ -41,6 +41,15 @@ def maximum(emp_units):
             max = ele
     return max
 
+def second_maximum(emp_units):
+    first_max = emp_units[0]
+    second_max = emp_units[0]
+    for ele in emp_units:
+        if ele > first_max:
+            first_max = ele
+        if ele > second_max and ele != first_max:
+            second_max = ele
+    return second_max
 
 import unittest
 
@@ -52,6 +61,9 @@ class TestMultipleExcelSheet(unittest.TestCase):
 
     def test_maximum(self):
         self.assertEqual(maximum(emp_units),91)
+
+    def test_second_max(self):
+        self.assertEqual(second_maximum(emp_units),90)
 
 if __name__ == '__main__':
     unittest.main()
