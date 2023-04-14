@@ -82,8 +82,8 @@ class TestMultipleExcelSheet(unittest.TestCase):
         self.assertEqual(averageX(emp_units), (19.47826086956522))
 
     
-    #def test_maximum(self):#0
-    #    self.assertEqual(maximum(emp_units),91)
+    def test_maximum(self):#0
+        self.assertEqual(maximum(emp_units),91)
 
     def test_maximum(self):#1
         self.assertEqual(maximum(emp_units),90)

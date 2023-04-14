@@ -137,7 +137,12 @@ def remove_value(data, val):
             list_value.append(index)
     return list_value
 
-
+def maximum(emp_units):
+    max = emp_units[0]
+    for ele in emp_units:
+        if ele > max:
+            max = ele
+    return max
 
 
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5], "string" : ["", "amar", "ankit"],
@@ -209,7 +214,8 @@ class TestCaseMethod(unittest.TestCase):
     def test_average(self):
         self.assertEqual(find_average(emp_units), 35.72093023255814)
 
-    
+    def test_maximum(self):#0
+        self.assertEqual(maximum(emp_units),91)
     
     def test_remove_value(self):
         self.assertEqual(remove_value([22,4,5,55,60],55), [22,4,5,60])
