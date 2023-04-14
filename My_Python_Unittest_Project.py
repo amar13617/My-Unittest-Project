@@ -29,14 +29,42 @@ def handler(event,context):
         return {
 
     }
-    
-    
+#Excel Test cases for multiple sheet    
+import xlrd
+workbook = xlrd.open_workbook(r'C:\Users\lenovo\Dropbox\PC\Desktop\emp_details.xlsx')
+print(workbook)
+worksheet = workbook.sheet_by_index(0)
+print(worksheet)
 
-def find_average(data):
+emp_region = []
+emp_name = []
+emp_items = []
+emp_units = []
+emp_units_cost = []
+emp_total_cost = []
+
+
+for row in range(1, worksheet.nrows):
+    #print(worksheet.row_values(row)[0])
+    region = worksheet.row_values(row)[0]
+    emp_region.append(region)
+    rep = worksheet.row_values(row)[1]
+    emp_name.append(rep)
+    items = (worksheet.row_values(row)[2])
+    emp_items.append(items)
+    units = (worksheet.row_values(row)[3])
+    emp_units.append(units)
+    units_cost = (worksheet.row_values(row)[4])
+    emp_units_cost.append(units_cost)
+    total = (worksheet.row_values(row)[5])
+    emp_total_cost.append(total)
+   
+
+def find_average(emp_units):
     sm = 0
-    for i in data:
+    for i in emp_units:
         sm = sm + i
-    average_list = sm/len(data)
+    average_list = sm/len(emp_units)
     return average_list
 
 def prime_number(data1):
@@ -179,7 +207,9 @@ class TestCaseMethod(unittest.TestCase):
     
 
     def test_average(self):
-        self.assertEqual(find_average([22,3,4,55]), 21)
+        self.assertEqual(find_average(emp_units), 35.72093023255814)
+
+    
     
     def test_remove_value(self):
         self.assertEqual(remove_value([22,4,5,55,60],55), [22,4,5,60])
