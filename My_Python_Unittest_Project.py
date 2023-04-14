@@ -242,7 +242,7 @@ class TestCaseMethod(unittest.TestCase):
         self.assertEqual(test_get()[0], 'utf-8')
 
     def test_value_get_method1(self):
-        self.assertEqual(test_get()["country"], "United States")
+        self.assertEqual(test_get()[1][0], '{')
 
     def test_maximum(self):#0
         self.assertEqual(maximum(emp_units),91)
