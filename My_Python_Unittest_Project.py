@@ -67,6 +67,8 @@ def find_average(emp_units):
     average_list = sm/len(emp_units)
     return average_list
 
+
+
 def prime_number(data1):
     prime = []
     for i in data1:
@@ -210,7 +212,15 @@ def request_func():
     if resp.status_code == 200:
         return resp.text, resp.json(), resp.encoding, resp.cookies
     return resp.status_code, resp.url, "error"
-print(request_func())
+#print(request_func())
+
+def test_get():
+     response = requests.get("http://api.zippopotam.us/us/90210")
+     if response.status_code == 200:
+         return response.encoding, response.text
+     return response.status_code, "error"
+print(test_get())
+
 
 def post_request_fun():
     payload = {'key1': 'value1', 'key2': 'value2'}
@@ -218,13 +228,18 @@ def post_request_fun():
     if r.status_code == 200:
         return r.json(), r.encoding, r.content, r.cookies, r.url
     return r.status_code, r.text, "error"
-print(post_request_fun())
+#print(post_request_fun())
+
+
 
 class TestCaseMethod(unittest.TestCase):
     
 
     def test_average(self):
         self.assertEqual(find_average(emp_units), 35.72093023255814)
+
+    def test_value_get_method(self):
+        self.assertEqual(test_get()[0], 'utf-8')
 
     def test_maximum(self):#0
         self.assertEqual(maximum(emp_units),91)
