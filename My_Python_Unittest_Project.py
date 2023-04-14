@@ -144,6 +144,14 @@ def maximum(emp_units):
             max = ele
     return max
 
+def value_in(emp_units, val):
+    val_value = []
+    for ele in emp_units:
+        if ele == val:
+            val_value.append(ele)
+    return val_value
+
+
 
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5], "string" : ["", "amar", "ankit"],
 "operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even", "operation": "string"}
@@ -278,6 +286,9 @@ class TestCaseMethod(unittest.TestCase):
 
     def test_post_encoding_method(self):
         self.assertEqual(post_request_fun()[1],'utf-8')
+
+    def test_in_value2(self):
+        self.assertTrue(value_in(emp_units,90),[90])
 
 if __name__ == '__main__':
     unittest.main()
