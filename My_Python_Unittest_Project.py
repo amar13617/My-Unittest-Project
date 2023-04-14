@@ -217,7 +217,7 @@ def request_func():
 def test_get():
      response = requests.get("http://api.zippopotam.us/us/90210")
      if response.status_code == 200:
-         return response.encoding, response.text, response.json()
+         return response.encoding, response.text
      return response.status_code, "error"
 print(test_get())
 
@@ -238,11 +238,14 @@ class TestCaseMethod(unittest.TestCase):
     def test_average(self):
         self.assertEqual(find_average(emp_units), 35.72093023255814)
 
-    def test_value_get_method(self):
+    def test_get_method_encoding_value(self):
         self.assertEqual(test_get()[0], 'utf-8')
 
-    def test_value_get_method1(self):
+    def test_get_method_text_value(self):
         self.assertEqual(test_get()[1][0], '{')
+
+    def test_get_method_text(self):
+        self.assertEqual(test_get()[1][1], '"')
 
     def test_maximum(self):#0
         self.assertEqual(maximum(emp_units),91)
