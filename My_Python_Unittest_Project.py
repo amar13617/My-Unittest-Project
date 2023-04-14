@@ -151,7 +151,11 @@ def value_in(emp_units, val):
             val_value.append(ele)
     return val_value
 
-
+def sumX(emp_units):
+    sm = 0
+    for ele in emp_units:
+        sm = sm + ele
+    return sm
 
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5], "string" : ["", "amar", "ankit"],
 "operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even", "operation": "string"}
@@ -281,7 +285,7 @@ class TestCaseMethod(unittest.TestCase):
     def test_post_json_method(self):
         self.assertTrue(post_request_fun())
     
-    def test_post_url_methid(self):
+    def test_post_url_method(self):
         self.assertEqual(post_request_fun()[4],'http://httpbin.org/post')
 
     def test_post_encoding_method(self):
@@ -289,6 +293,9 @@ class TestCaseMethod(unittest.TestCase):
 
     def test_in_value2(self):
         self.assertTrue(value_in(emp_units,90),[90])
+
+    def test_sum(self):
+        self.assertEqual(sumX(emp_units),1536)
 
 
 

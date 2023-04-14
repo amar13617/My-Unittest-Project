@@ -92,8 +92,8 @@ class TestMultipleExcelSheet(unittest.TestCase):
 #        self.assertEqual(second_maximum(emp_units),90)#0
 
     
-#    def test_sum(self):
-#        self.assertEqual(sumX(emp_units),1536)#0
+    def test_sum(self):
+        self.assertEqual(sumX(emp_units),1536)#0
     
 #    def test_in_value(self):#0
 #        self.assertEqual(value_in(emp_units, 90),[90])
