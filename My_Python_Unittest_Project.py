@@ -291,8 +291,11 @@ class TestCaseMethod(unittest.TestCase):
     def test_post_encoding_method(self):
         self.assertEqual(post_request_fun()[1],'utf-8')
 
-    def test_in_value2(self):
+    def test_in_value(self):
         self.assertTrue(value_in(emp_units,90),[90])
+
+    def test_in_value2(self):
+        self.assertEqual(value_in(emp_units,90),[90])
 
     def test_sum(self):
         self.assertEqual(sumX(emp_units),1536)
