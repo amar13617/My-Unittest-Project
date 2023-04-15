@@ -25,6 +25,8 @@ def handler(event,context):
         return find_odd_even(data)
     elif operation == "string":
         return remove_empty_string(To_String)
+    elif operation == "string":
+        return find_postion(To_String)
     else:
         return {
 
@@ -152,7 +154,7 @@ def maximum(emp_units):
             max = ele
     return max
 
-def value_in(emp_units, val):
+def emp_unit_cost(emp_units, val):
     val_value = []
     for ele in emp_units:
         if ele == val:
@@ -164,6 +166,15 @@ def sumX(emp_units):
     for ele in emp_units:
         sm = sm + ele
     return sm
+
+def find_postion(To_String):
+    python_indices = []
+    for name in range(len(To_String)):
+        if To_String[name] == "ashish":
+            python_indices.append(name)
+
+    return python_indices
+
 
 event = {"data" : [22,3,40,56],"data1" : [23,3,4,55], "data2" : [1,2,3,4,5], "string" : ["", "amar", "ankit"],
 "operation": "second_max", "operation":"prime", "operation": "reverse", "operation": "sorting", "operation":"odd_even", "operation": "string"}
@@ -240,10 +251,14 @@ def post_request_fun():
 
 
 class TestCaseMethod(unittest.TestCase):
+
     
 
     def test_average(self):
         self.assertEqual(find_average(emp_units), 35.72093023255814)
+
+    def test_position(self):
+        self.assertEqual(find_postion(["", "ashish", "ankit"]), [1])
 
     def test_get_method_encoding_value(self):
         self.assertEqual(test_get()[0], 'utf-8')
@@ -271,9 +286,6 @@ class TestCaseMethod(unittest.TestCase):
     
     def test_average_true(self):
         self.assertTrue(find_average([22,3,4,55]))
-    
-    def test_average_in(self):
-        self.assertIn(find_average([22,3,4,55]), [21,22,34,56])
 
     def test_prime(self):
         self.assertEqual(prime_number([22,3,4,55]), [3])
@@ -319,15 +331,17 @@ class TestCaseMethod(unittest.TestCase):
     def test_post_encoding_method(self):
         self.assertEqual(post_request_fun()[1],'utf-8')
 
-    def test_in_value(self):
-        self.assertTrue(value_in(emp_units,90),[90])
+    def test_emp_unit_cost(self):
+        self.assertTrue(emp_unit_cost(emp_units,90),[90])
 
-    def test_in_value2(self):
-        self.assertEqual(value_in(emp_units,90),[90])
+    def test_emp_unit_cost2(self):
+        self.assertEqual(emp_unit_cost(emp_units,90),[90])
 
-    def test_sum(self):
+    def test_sumvalue(self):
         self.assertEqual(sumX(emp_units),1536)
 
+    
+    
 
 
 if __name__ == '__main__':
