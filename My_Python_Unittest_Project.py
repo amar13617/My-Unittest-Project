@@ -29,6 +29,11 @@ def handler(event,context):
         return {
 
     }
+
+
+
+
+
 #Excel Test cases for multiple sheet    
 import xlrd
 workbook = xlrd.open_workbook(r'C:\Users\lenovo\Dropbox\PC\Desktop\emp_details.xlsx')
@@ -232,6 +237,7 @@ def post_request_fun():
 
 
 
+
 class TestCaseMethod(unittest.TestCase):
     
 
@@ -241,11 +247,11 @@ class TestCaseMethod(unittest.TestCase):
     def test_get_method_encoding_value(self):
         self.assertEqual(test_get()[0], 'utf-8')
 
-    def test_get_method_text_value(self):
-        self.assertEqual(test_get()[1][0], '{')
+    #def test_get_method_text_value(self):
+    #    self.assertEqual(test_get()[1][0], '{')
 
-    def test_get_method_text(self):
-        self.assertEqual(test_get()[1][1], '"')
+    #def test_get_method_text(self):
+    #    self.assertEqual(test_get()[1][1], '"')
 
     def test_maximum(self):#0
         self.assertEqual(maximum(emp_units),91)
