@@ -74,6 +74,7 @@ def find_average(emp_units):
 
 
 
+
 def prime_number(data1):
     prime = []
     for i in data1:
@@ -247,11 +248,11 @@ class TestCaseMethod(unittest.TestCase):
     def test_get_method_encoding_value(self):
         self.assertEqual(test_get()[0], 'utf-8')
 
-    #def test_get_method_text_value(self):
-    #    self.assertEqual(test_get()[1][0], '{')
+    def test_get_method_text_value(self):
+        self.assertEqual(test_get()[1], '{"post code": "90210", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Beverly Hills", "longitude": "-118.4065", "state": "California", "state abbreviation": "CA", "latitude": "34.0901"}]}')
 
-    #def test_get_method_text(self):
-    #    self.assertEqual(test_get()[1][1], '"')
+    def test_get_method_text(self):
+        self.assertEqual(test_get()[1][1], '"')
 
     def test_maximum(self):#0
         self.assertEqual(maximum(emp_units),91)
